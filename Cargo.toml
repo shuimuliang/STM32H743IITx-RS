@@ -20,9 +20,17 @@ panic-halt = "0.2.0"
 # Uncomment for the device example.
 # Update `memory.x`, set target to `thumbv7em-none-eabihf` in `.cargo/config`,
 # and then use `cargo build --examples device` to build it.
-# [dependencies.stm32h7xx-hal]
-# features = ["stm32h743", "rt"]
-# version = "0.15.1"
+
+# log
+rtt-target = "0.4.0"
+panic-rtt-target = { version = "0.1.2", features = ["cortex-m"] }
+log = "0.4.20"
+
+[dependencies.stm32h7xx-hal]
+features = ["stm32h743", "rt"]
+version = "0.15.1"
+
+
 
 # this lets you use `cargo fix`!
 [[bin]]
