@@ -4,6 +4,7 @@ edition = "2018"
 readme = "README.md"
 name = "stm32h743ii-rs"
 version = "0.1.0"
+resolver = "2"
 
 [dependencies]
 cortex-m = "0.7.7"
@@ -18,6 +19,10 @@ log = "0.4.20"
 
 stm32h7xx-hal = { version = "0.15.1", features = ["stm32h743", "rt"]}
 freertos-rust = "*"
+
+hex = { version = "0.4.3", default-features = false, features = ["alloc"] }
+anychain-core = { git = "https://github.com/shuimuliang/anychain-no-std.git", default-features = false }
+# anychain-ethereum = { git = "https://github.com/shuimuliang/anychain-no-std.git", default-features = false }
 
 # Uncomment for the panic example.
 # panic-itm = "0.4.1"

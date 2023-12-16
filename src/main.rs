@@ -15,6 +15,8 @@ use rtt_target::{rprintln, rtt_init_print};
 use stm32h7xx_hal::{pac, prelude::*};
 
 use freertos_rust::*;
+use anychain_core::{hex, libsecp256k1, amount};
+// use anychain_core::{amount};
 
 #[global_allocator]
 static GLOBAL: FreeRtosAllocator = FreeRtosAllocator;
@@ -23,6 +25,13 @@ static GLOBAL: FreeRtosAllocator = FreeRtosAllocator;
 fn main() -> ! {
     rtt_init_print!();
     rprintln!("Hello World!");
+
+    let public_key = "546974616e2028746974616e6275696c6465722e78797a29";
+    let public_key = hex::decode(public_key).unwrap();
+    rprintln!("{:?}", public_key);
+
+    let s = amount::to_basic_unit("0.0001037910", 7);
+    rprintln!("{:?}", s);
 
     loop {
         // 延时500ms
