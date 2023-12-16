@@ -11,6 +11,14 @@ cortex-m-rt = "0.7.3"
 cortex-m-semihosting = "0.5.0"
 panic-halt = "0.2.0"
 
+# log
+rtt-target = "0.4.0"
+panic-rtt-target = { version = "0.1.2", features = ["cortex-m"] }
+log = "0.4.20"
+
+stm32h7xx-hal = { version = "0.15.1", features = ["stm32h743", "rt"]}
+freertos-rust = "*"
+
 # Uncomment for the panic example.
 # panic-itm = "0.4.1"
 
@@ -21,16 +29,8 @@ panic-halt = "0.2.0"
 # Update `memory.x`, set target to `thumbv7em-none-eabihf` in `.cargo/config`,
 # and then use `cargo build --examples device` to build it.
 
-# log
-rtt-target = "0.4.0"
-panic-rtt-target = { version = "0.1.2", features = ["cortex-m"] }
-log = "0.4.20"
-
-[dependencies.stm32h7xx-hal]
-features = ["stm32h743", "rt"]
-version = "0.15.1"
-
-
+[build-dependencies]
+freertos-cargo-build = "*"
 
 # this lets you use `cargo fix`!
 [[bin]]
